@@ -1,0 +1,7 @@
+python-dotenv
+numpy
+pandas
+matplotlib
+scikit-learn
+dill
+pymongo
