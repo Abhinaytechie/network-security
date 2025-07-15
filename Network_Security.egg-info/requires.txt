@@ -4,6 +4,7 @@ pandas
 matplotlib
 scikit-learn
 dill
+pymongo[srv]==3.11
 pymongo
 xgboost
 certifi
