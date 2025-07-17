@@ -8,5 +8,6 @@ pymongo[srv]==3.11
 pymongo
 xgboost
 certifi
-
+scipy
+pyaml
 #-e .
