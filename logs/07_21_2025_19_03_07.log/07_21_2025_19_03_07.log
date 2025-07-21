@@ -1,0 +1,24 @@
+[2025-07-21 19:03:08,237] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 19:03:08,237] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 19:03:09,678] 15 root - INFO - Intitiate the data ingestion
+[2025-07-21 19:03:11,656] 58 root - INFO - Performed train test split on the dataframe
+[2025-07-21 19:03:11,656] 60 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2025-07-21 19:03:11,656] 68 root - INFO - Exporting train and test file path.
+[2025-07-21 19:03:11,697] 77 root - INFO - Exported train and test file path.
+[2025-07-21 19:03:11,697] 18 root - INFO - Data Intitation Completed
+[2025-07-21 19:03:11,702] 21 root - INFO - Initiate the data Validation
+[2025-07-21 19:03:11,723] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 19:03:11,723] 34 root - INFO - Data frame has columns:31
+[2025-07-21 19:03:11,723] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 19:03:11,723] 34 root - INFO - Data frame has columns:31
+[2025-07-21 19:03:11,812] 23 root - INFO - data Validation Completed
+[2025-07-21 19:03:11,813] 26 root - INFO - data Transformation started
+[2025-07-21 19:03:11,813] 63 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[2025-07-21 19:03:11,813] 65 root - INFO - Starting data transformation
+[2025-07-21 19:03:11,831] 48 root - INFO - Entered get_data_trnasformer_object method of Trnasformation class
+[2025-07-21 19:03:11,831] 53 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-07-21 19:03:11,841] 43 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 19:03:11,842] 47 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 19:03:11,842] 43 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 19:03:11,844] 47 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 19:03:11,845] 30 root - INFO - data Transformation completed
