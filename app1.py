@@ -13,8 +13,8 @@ import plotly.graph_objects as go
 from sklearn.preprocessing import MinMaxScaler
 
 from networksecurity.utils.main_utils.utils import load_object
-from networksecurity.utils.ml_utils.model.estimator import NetworkModel
-from networksecurity.pipeline.training_pipeline import TrainingPipeline
+
+
 
 # Constants
 OUTPUT_PATH = "prediction_output/output.csv"
