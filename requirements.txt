@@ -19,4 +19,5 @@ jinja2
 streamlit
 shap
 plotly
+seaborn
 #-e .
