@@ -232,46 +232,46 @@ elif main_mode == "🛠️ Advanced Mode":
 
     # ---- Export Summary ----
     # ---- Export Summary ----
-elif option == "📄 Export Summary":
-    st.title("📄 Export Prediction Summary")
+    elif option == "📄 Export Summary":
+        st.title("📄 Export Prediction Summary")
 
-    if os.path.exists(OUTPUT_PATH):
-        df = pd.read_csv(OUTPUT_PATH)
-        summary = {
-            "Total Rows": df.shape[0],
-            "Predicted Classes": df['predicted_column'].nunique(),
-            "Top Class": df['predicted_column'].value_counts().idxmax(),
-            "Class Distribution": df['predicted_column'].value_counts().to_dict()
-        }
+        if os.path.exists(OUTPUT_PATH):
+            df = pd.read_csv(OUTPUT_PATH)
+            summary = {
+                "Total Rows": df.shape[0],
+                "Predicted Classes": df['predicted_column'].nunique(),
+                "Top Class": df['predicted_column'].value_counts().idxmax(),
+                "Class Distribution": df['predicted_column'].value_counts().to_dict()
+            }
 
-        st.json(summary)
-        st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
+            st.json(summary)
+            st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
 
-        # ---------------- PDF Export Option ----------------
-        st.markdown("---")
-        st.subheader("🖨️ Generate PDF Report")
-        import pdfkit
-        from tempfile import NamedTemporaryFile
+            # ---------------- PDF Export Option ----------------
+            st.markdown("---")
+            st.subheader("🖨️ Generate PDF Report")
+            import pdfkit
+            from tempfile import NamedTemporaryFile
 
-        html_content = f"""
-        <h1>Cybersecurity Threat Report</h1>
-        <p><b>Total Rows:</b> {summary['Total Rows']}</p>
-        <p><b>Predicted Classes:</b> {summary['Predicted Classes']}</p>
-        <p><b>Top Class:</b> {summary['Top Class']}</p>
-        <h3>Class Distribution:</h3>
-        <ul>
-        {''.join([f"<li>{label}: {count}</li>" for label, count in summary['Class Distribution'].items()])}
-        </ul>
-        <p><i>Report generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</i></p>
-        """
+            html_content = f"""
+            <h1>Cybersecurity Threat Report</h1>
+            <p><b>Total Rows:</b> {summary['Total Rows']}</p>
+            <p><b>Predicted Classes:</b> {summary['Predicted Classes']}</p>
+            <p><b>Top Class:</b> {summary['Top Class']}</p>
+            <h3>Class Distribution:</h3>
+            <ul>
+            {''.join([f"<li>{label}: {count}</li>" for label, count in summary['Class Distribution'].items()])}
+            </ul>
+            <p><i>Report generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</i></p>
+            """
 
-        try:
-            with NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_pdf:
-                pdfkit.from_string(html_content, tmp_pdf.name)
-                with open(tmp_pdf.name, "rb") as f:
-                    st.download_button("📄 Download PDF Report", data=f, file_name="threat_summary.pdf", mime="application/pdf")
-        except Exception as e:
-            st.error(f"PDF generation failed: {e}")
-    else:
-        st.info("No predictions available.")
+            try:
+                with NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_pdf:
+                    pdfkit.from_string(html_content, tmp_pdf.name)
+                    with open(tmp_pdf.name, "rb") as f:
+                        st.download_button("📄 Download PDF Report", data=f, file_name="threat_summary.pdf", mime="application/pdf")
+            except Exception as e:
+                st.error(f"PDF generation failed: {e}")
+        else:
+            st.info("No predictions available.")
 
