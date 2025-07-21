@@ -55,7 +55,7 @@ def generate_pdf_summary(df):
             y = height - 50
 
     # ───────────────────────────────────────────────
-    if "prediction" in df.columns and df["prediction"].nunique() > 1:
+    if "predicted_column" in df.columns and df["predicted_column"].nunique() > 1:
         y -= 30
         c.setFont("Helvetica-Bold", 13)
         c.drawString(50, y, "📈 Top Features Correlated with Threats:")
@@ -63,7 +63,7 @@ def generate_pdf_summary(df):
 
         try:
             # Compute correlation with the "prediction" column
-            corr = df.corr(numeric_only=True)["prediction"].drop("prediction").sort_values(ascending=False)
+            corr = df.corr(numeric_only=True)["predicted_column"].drop("predicted_column").sort_values(ascending=False)
             top_corr = corr.head(5)
 
             for col, val in top_corr.items():
@@ -78,13 +78,13 @@ def generate_pdf_summary(df):
             c.drawString(60, y, "Could not compute correlation.")
 
     # ───────────────────────────────────────────────
-    if "prediction" in df.columns and df["prediction"].sum() > 0:
+    if "predicted_column" in df.columns and df["predicted_column"].sum() > 0:
         y -= 30
         c.setFont("Helvetica-Bold", 13)
         c.drawString(50, y, "🔍 Sample Threat Entries (Top 5):")
         c.setFont("Helvetica", 10)
 
-        sample = df[df["prediction"] == 1].head(5)
+        sample = df[df["predicted_column"] == 1].head(5)
         for i, row in sample.iterrows():
             y -= 15
             entry = ', '.join(f"{k}={v}" for k, v in row.items() if isinstance(v, (int, float, str)))[:130]
