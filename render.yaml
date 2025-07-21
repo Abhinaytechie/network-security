@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: network-security-fastapi
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGODB_URL
+        value: "mongodb+srv://bhargavasaiabhinayb:Abhi1289@cluster0.n99mpx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    autoDeploy: true

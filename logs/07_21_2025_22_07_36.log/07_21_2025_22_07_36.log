@@ -1,0 +1,5 @@
+[2025-07-21 22:07:36,576] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 22:07:36,576] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 22:07:40,033] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:07:40,043] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 22:07:40,437] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"

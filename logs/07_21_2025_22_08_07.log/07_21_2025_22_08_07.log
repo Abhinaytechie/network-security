@@ -1,0 +1,37 @@
+[2025-07-21 22:08:08,273] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 22:08:08,274] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 22:08:13,027] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:08:13,037] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 22:08:13,445] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 22:08:13,786] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:08:13,791] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 22:08:13,805] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 22:08:16,538] 41 root - INFO - Start data Ingestion
+[2025-07-21 22:08:19,281] 58 root - INFO - Performed train test split on the dataframe
+[2025-07-21 22:08:19,282] 60 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2025-07-21 22:08:19,283] 68 root - INFO - Exporting train and test file path.
+[2025-07-21 22:08:19,408] 77 root - INFO - Exported train and test file path.
+[2025-07-21 22:08:19,409] 44 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\07_21_2025_22_08_08\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\07_21_2025_22_08_08\\data_ingestion\\ingested\\test.csv')
+[2025-07-21 22:08:19,415] 57 root - INFO - Initiate the data Validation
+[2025-07-21 22:08:19,440] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:08:19,440] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:08:19,441] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:08:19,441] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:08:19,701] 63 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[2025-07-21 22:08:19,702] 65 root - INFO - Starting data transformation
+[2025-07-21 22:08:19,769] 48 root - INFO - Entered get_data_trnasformer_object method of Trnasformation class
+[2025-07-21 22:08:19,770] 53 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-07-21 22:08:19,821] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:08:19,833] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:08:19,834] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:08:19,843] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:15:08,368] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:15:08,370] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:15:08,370] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:15:08,433] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:15:08,433] 136 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\07_21_2025_22_08_08\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9910037400181947, precision_score=0.9887051230334812, recall_score=0.9933130699088146), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9744629104175111, precision_score=0.9654618473895582, recall_score=0.983633387888707))
+[2025-07-21 22:15:09,094] 679 huggingface_hub.repository - WARNING - Cloning https://huggingface.co/Abhinaytechie/network-security into local empty directory.
+[2025-07-21 22:15:15,625] 1114 huggingface_hub.repository - WARNING - batch response: Authorization error.
+error: failed to push some refs to 'https://huggingface.co/Abhinaytechie/network-security'
+
+[2025-07-21 22:15:15,741] 131 root - ERROR - \u274c Failed to upload model/preprocessor to Hugging Face

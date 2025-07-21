@@ -3,11 +3,20 @@ numpy
 pandas
 matplotlib
 scikit-learn
-dill
-pymongo[srv]==3.11
 pymongo
+pymongo[srv]
 xgboost
 certifi
 scipy
 pyaml
+mlflow
+dagshub
+huggingface_hub
+fastapi
+uvicorn
+python-multipart
+jinja2
+streamlit
+shap
+plotly
 #-e .

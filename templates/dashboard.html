@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Prediction Result Chart</h2>
+    <canvas id="predictionChart" width="400" height="400"></canvas>
+
+    <script>
+        // Declare variables safely
+        const chartLabels = JSON.parse('{{ labels | tojson | safe }}');
+        const chartData = JSON.parse('{{ values | tojson | safe }}');
+
+        const ctx = document.getElementById('predictionChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Prediction Classes',
+                    data: chartData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0,
+                            color: '#555'
+                        },
+                        grid: {
+                            color: '#ddd'
+                        }
+                    },
+                    x: {
+                        ticks: { color: '#555' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

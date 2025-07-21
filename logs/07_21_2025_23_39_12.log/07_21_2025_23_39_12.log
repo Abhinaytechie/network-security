@@ -1,0 +1,30 @@
+[2025-07-21 23:39:15,088] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 23:39:15,098] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 23:39:15,525] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:39:15,886] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 23:39:15,891] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:39:15,893] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:41:10,894] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:41:10,910] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:41:10,912] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:43:36,675] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:43:36,678] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:43:36,679] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:45:10,591] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:45:10,598] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:45:10,599] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:46:05,407] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:46:05,413] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:46:05,416] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:51:46,239] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:51:46,246] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:51:46,248] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 23:59:21,838] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:59:21,847] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:59:21,849] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-22 00:00:41,123] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-22 00:00:41,130] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-22 00:00:41,132] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-22 00:01:07,344] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-22 00:01:07,349] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-22 00:01:07,351] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!

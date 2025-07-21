@@ -1,0 +1,37 @@
+[2025-07-21 22:29:56,565] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 22:29:56,565] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 22:29:59,975] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:29:59,979] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 22:30:00,404] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 22:30:00,762] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:30:00,766] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 22:30:00,782] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 22:30:09,971] 42 root - INFO - Start data Ingestion
+[2025-07-21 22:30:12,179] 58 root - INFO - Performed train test split on the dataframe
+[2025-07-21 22:30:12,180] 60 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2025-07-21 22:30:12,180] 68 root - INFO - Exporting train and test file path.
+[2025-07-21 22:30:12,271] 77 root - INFO - Exported train and test file path.
+[2025-07-21 22:30:12,272] 45 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\07_21_2025_22_29_56\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\07_21_2025_22_29_56\\data_ingestion\\ingested\\test.csv')
+[2025-07-21 22:30:12,279] 58 root - INFO - Initiate the data Validation
+[2025-07-21 22:30:12,309] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:30:12,309] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:30:12,309] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:30:12,309] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:30:12,497] 63 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[2025-07-21 22:30:12,497] 65 root - INFO - Starting data transformation
+[2025-07-21 22:30:12,523] 48 root - INFO - Entered get_data_trnasformer_object method of Trnasformation class
+[2025-07-21 22:30:12,523] 53 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-07-21 22:30:12,545] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:30:12,547] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:30:12,547] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:30:12,549] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:35:17,520] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:35:17,521] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:35:17,521] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:35:17,554] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:35:17,554] 136 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\07_21_2025_22_29_56\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.99083492798872, precision_score=0.9881478505423865, recall_score=0.9935366592607554), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9757101687937423, precision_score=0.9689288634505315, recall_score=0.9825870646766169))
+[2025-07-21 22:35:18,121] 679 huggingface_hub.repository - WARNING - Cloning https://huggingface.co/Abhinaytechie/network-security into local empty directory.
+[2025-07-21 22:35:28,506] 1114 huggingface_hub.repository - WARNING - To https://huggingface.co/Abhinaytechie/network-security
+   818b198..b872cbd  main -> main
+
+[2025-07-21 22:35:28,953] 129 root - INFO - \u2705 Uploaded to: https://huggingface.co/Abhinaytechie/network-security

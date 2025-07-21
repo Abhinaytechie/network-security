@@ -1,0 +1,50 @@
+[2025-07-21 22:20:41,629] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 22:20:41,629] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 22:20:45,329] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:20:45,335] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 22:20:45,738] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 22:20:46,099] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 22:20:46,103] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 22:20:46,106] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
+[2025-07-21 22:20:53,422] 42 root - INFO - Start data Ingestion
+[2025-07-21 22:20:55,424] 58 root - INFO - Performed train test split on the dataframe
+[2025-07-21 22:20:55,424] 60 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[2025-07-21 22:20:55,426] 68 root - INFO - Exporting train and test file path.
+[2025-07-21 22:20:55,504] 77 root - INFO - Exported train and test file path.
+[2025-07-21 22:20:55,504] 45 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\07_21_2025_22_20_41\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\07_21_2025_22_20_41\\data_ingestion\\ingested\\test.csv')
+[2025-07-21 22:20:55,514] 58 root - INFO - Initiate the data Validation
+[2025-07-21 22:20:55,559] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:20:55,559] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:20:55,560] 33 root - INFO - Reuired number of columns:2
+[2025-07-21 22:20:55,560] 34 root - INFO - Data frame has columns:31
+[2025-07-21 22:20:55,784] 63 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[2025-07-21 22:20:55,784] 65 root - INFO - Starting data transformation
+[2025-07-21 22:20:55,809] 48 root - INFO - Entered get_data_trnasformer_object method of Trnasformation class
+[2025-07-21 22:20:55,809] 53 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2025-07-21 22:20:55,831] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:20:55,834] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:20:55,834] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:20:55,837] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:26:08,334] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:26:08,334] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:26:08,334] 46 root - INFO - Entered the save_object method of MainUtils class
+[2025-07-21 22:26:08,337] 50 root - INFO - Exited the save_object method of MainUtils class
+[2025-07-21 22:26:08,337] 136 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\07_21_2025_22_20_41\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9907435662699624, precision_score=0.989234206784481, recall_score=0.9922575387123065), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9800319488817891, precision_score=0.9776892430278884, recall_score=0.9823859087269816))
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: cde13f2494ef6692ecf0f8296ced0823b47459
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: b5bf26300f53e1e4b94c1fd5f7dd18a29b4251
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: d26a8e0b12b1731dc84099926af71466f6882b
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: 1edf9d4066afa6499d68e8839c4403163a436f
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: 8b19803841278dd115dee70a89c8b63cecd8ff
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: 5a93bff575c88cff8e1e91f4209715577cfb70
+[2025-07-21 22:26:08,341] 102 root - WARNING - Permission denied while deleting file: 344aac8c09253b3b630fb776ae94478aa0275b
+[2025-07-21 22:26:08,342] 102 root - WARNING - Permission denied while deleting file: a30951b89c92e0d8eb03f53d689707378d1405
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\06
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\40
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\42
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\7c
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\81
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\99
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\a6
+[2025-07-21 22:26:08,342] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects\db
+[2025-07-21 22:26:08,344] 109 root - WARNING - Permission denied while deleting folder: D:\Projects\Network_Security\huggingface_upload\network-security\.git\objects
+[2025-07-21 22:26:09,183] 132 root - ERROR - \u274c Failed to upload model/preprocessor to Hugging Face

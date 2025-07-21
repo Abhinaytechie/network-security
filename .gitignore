@@ -1,3 +1,9 @@
 venv
 .env
 Network_Security.egg-info/
+
+__pycache__/
+*.pyc
+*.pkl
+prediction_output/
+huggingface_upload/

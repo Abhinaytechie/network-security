@@ -1,0 +1,8 @@
+[2025-07-21 23:15:35,966] 148 numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+[2025-07-21 23:15:35,967] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2025-07-21 23:15:39,157] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 23:15:39,160] 107 dagshub - INFO - Accessing as Abhinaytechie
+[2025-07-21 23:15:39,557] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/Abhinaytechie/network-security "HTTP/1.1 200 OK"
+[2025-07-21 23:15:39,909] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-07-21 23:15:39,912] 107 dagshub - INFO - Initialized MLflow to track repo "Abhinaytechie/network-security"
+[2025-07-21 23:15:39,925] 107 dagshub - INFO - Repository Abhinaytechie/network-security initialized!
