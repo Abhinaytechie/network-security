@@ -38,7 +38,7 @@ def generate_pdf_summary(df):
     y -= 20
     c.drawString(50, y, f"Total Entries Scanned: {len(df)}")
 
-    detected = df["prediction"].sum() if "prediction" in df.columns else 'N/A'
+    detected = df["predicted_column"].sum() if "predicted_column" in df.columns else 'N/A'
     y -= 20
     c.drawString(50, y, f"Total Threats Detected: {detected}")
 
