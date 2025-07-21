@@ -311,33 +311,33 @@ elif main_mode == "🛠️ Advanced Mode":
     # ---- Export Summary ----
     # ---- Export Summary ----
     elif option == "📄 Export Summary":
-    st.title("📄 Export Prediction Summary")
+        st.title("📄 Export Prediction Summary")
 
-    if os.path.exists(OUTPUT_PATH):
-        df = pd.read_csv(OUTPUT_PATH)
+        if os.path.exists(OUTPUT_PATH):
+            df = pd.read_csv(OUTPUT_PATH)
 
-        summary = {
-            "Total Rows": df.shape[0],
-            "Predicted Classes": df['predicted_column'].nunique(),
-            "Top Class": df['predicted_column'].value_counts().idxmax(),
-            "Class Distribution": df['predicted_column'].value_counts().to_dict()
-        }
+            summary = {
+                "Total Rows": df.shape[0],
+                "Predicted Classes": df['predicted_column'].nunique(),
+                "Top Class": df['predicted_column'].value_counts().idxmax(),
+                "Class Distribution": df['predicted_column'].value_counts().to_dict()
+            }
 
-        st.json(summary)
-        st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
+            st.json(summary)
+            st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
 
-        # ---------------- PDF Export Option (via reportlab) ----------------
-        st.markdown("---")
-        st.subheader("🖨️ Generate PDF Report")
+            # ---------------- PDF Export Option (via reportlab) ----------------
+            st.markdown("---")
+            st.subheader("🖨️ Generate PDF Report")
 
-        from utils.pdf_utils import generate_pdf_summary  # You must place the function there or inline above
-        try:
-            pdf_buffer = generate_pdf_summary(df)
-            st.download_button("📄 Download PDF Report",
-                               data=pdf_buffer,
-                               file_name="threat_summary.pdf",
-                               mime="application/pdf")
-        except Exception as e:
-            st.error(f"PDF generation failed: {e}")
-    else:
-        st.info("No predictions available.")
+            from utils.pdf_utils import generate_pdf_summary  # You must place the function there or inline above
+            try:
+                pdf_buffer = generate_pdf_summary(df)
+                st.download_button("📄 Download PDF Report",
+                                data=pdf_buffer,
+                                file_name="threat_summary.pdf",
+                                mime="application/pdf")
+            except Exception as e:
+                st.error(f"PDF generation failed: {e}")
+        else:
+            st.info("No predictions available.")
