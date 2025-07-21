@@ -8,3 +8,5 @@ __pycache__/
 
 huggingface_upload/
 logs/
+mlruns/
+Artifacts/
