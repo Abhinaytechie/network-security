@@ -330,7 +330,7 @@ elif main_mode == "🛠️ Advanced Mode":
             st.markdown("---")
             st.subheader("🖨️ Generate PDF Report")
 
-            from utils.pdf_utils import generate_pdf_summary  # You must place the function there or inline above
+        
             try:
                 pdf_buffer = generate_pdf_summary(df)
                 st.download_button("📄 Download PDF Report",
