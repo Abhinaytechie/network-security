@@ -3,6 +3,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from io import BytesIO
 import joblib
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -20,7 +23,82 @@ from networksecurity.utils.main_utils.utils import load_object
 OUTPUT_PATH = "prediction_output/output.csv"
 PREPROCESSOR_PATH = "final_model/preprocessor.pkl"
 MODEL_PATH = "final_model/model.pkl"
+def generate_pdf_summary(df):
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer, pagesize=A4)
+    width, height = A4
 
+    c.setFont("Helvetica-Bold", 16)
+    c.drawString(50, height - 50, "🚨 Cyber Threat Detection Report")
+
+    c.setFont("Helvetica", 12)
+    y = height - 80
+    c.drawString(50, y, f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+    y -= 20
+    c.drawString(50, y, f"Total Entries Scanned: {len(df)}")
+
+    detected = df["prediction"].sum() if "prediction" in df.columns else 'N/A'
+    y -= 20
+    c.drawString(50, y, f"Total Threats Detected: {detected}")
+
+    y -= 30
+    c.setFont("Helvetica-Bold", 13)
+    c.drawString(50, y, "📊 Column Overview:")
+    c.setFont("Helvetica", 11)
+
+    for idx, col in enumerate(df.columns[:10], start=1):  # first 10 columns
+        y -= 15
+        c.drawString(60, y, f"- {col}")
+        if y < 100:
+            c.showPage()
+            y = height - 50
+
+    # ───────────────────────────────────────────────
+    if "prediction" in df.columns and df["prediction"].nunique() > 1:
+        y -= 30
+        c.setFont("Helvetica-Bold", 13)
+        c.drawString(50, y, "📈 Top Features Correlated with Threats:")
+        c.setFont("Helvetica", 11)
+
+        try:
+            # Compute correlation with the "prediction" column
+            corr = df.corr(numeric_only=True)["prediction"].drop("prediction").sort_values(ascending=False)
+            top_corr = corr.head(5)
+
+            for col, val in top_corr.items():
+                y -= 15
+                c.drawString(60, y, f"{col}: {val:.3f}")
+
+                if y < 100:
+                    c.showPage()
+                    y = height - 50
+        except:
+            y -= 15
+            c.drawString(60, y, "Could not compute correlation.")
+
+    # ───────────────────────────────────────────────
+    if "prediction" in df.columns and df["prediction"].sum() > 0:
+        y -= 30
+        c.setFont("Helvetica-Bold", 13)
+        c.drawString(50, y, "🔍 Sample Threat Entries (Top 5):")
+        c.setFont("Helvetica", 10)
+
+        sample = df[df["prediction"] == 1].head(5)
+        for i, row in sample.iterrows():
+            y -= 15
+            entry = ', '.join(f"{k}={v}" for k, v in row.items() if isinstance(v, (int, float, str)))[:130]
+            c.drawString(60, y, f"- {entry}")
+
+            if y < 100:
+                c.showPage()
+                y = height - 50
+
+    # ───────────────────────────────────────────────
+    c.showPage()
+    c.save()
+    buffer.seek(0)
+    return buffer
 # ─────────────────────────────
 st.set_page_config(page_title="🔐 Network Security Suite", layout="wide")
 
@@ -233,45 +311,33 @@ elif main_mode == "🛠️ Advanced Mode":
     # ---- Export Summary ----
     # ---- Export Summary ----
     elif option == "📄 Export Summary":
-        st.title("📄 Export Prediction Summary")
+    st.title("📄 Export Prediction Summary")
 
-        if os.path.exists(OUTPUT_PATH):
-            df = pd.read_csv(OUTPUT_PATH)
-            summary = {
-                "Total Rows": df.shape[0],
-                "Predicted Classes": df['predicted_column'].nunique(),
-                "Top Class": df['predicted_column'].value_counts().idxmax(),
-                "Class Distribution": df['predicted_column'].value_counts().to_dict()
-            }
+    if os.path.exists(OUTPUT_PATH):
+        df = pd.read_csv(OUTPUT_PATH)
 
-            st.json(summary)
-            st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
+        summary = {
+            "Total Rows": df.shape[0],
+            "Predicted Classes": df['predicted_column'].nunique(),
+            "Top Class": df['predicted_column'].value_counts().idxmax(),
+            "Class Distribution": df['predicted_column'].value_counts().to_dict()
+        }
 
-            # ---------------- PDF Export Option ----------------
-            st.markdown("---")
-            st.subheader("🖨️ Generate PDF Report")
-            import pdfkit
-            from tempfile import NamedTemporaryFile
+        st.json(summary)
+        st.download_button("⬇️ Download CSV", df.to_csv(index=False), file_name="predictions.csv")
 
-            html_content = f"""
-            <h1>Cybersecurity Threat Report</h1>
-            <p><b>Total Rows:</b> {summary['Total Rows']}</p>
-            <p><b>Predicted Classes:</b> {summary['Predicted Classes']}</p>
-            <p><b>Top Class:</b> {summary['Top Class']}</p>
-            <h3>Class Distribution:</h3>
-            <ul>
-            {''.join([f"<li>{label}: {count}</li>" for label, count in summary['Class Distribution'].items()])}
-            </ul>
-            <p><i>Report generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</i></p>
-            """
+        # ---------------- PDF Export Option (via reportlab) ----------------
+        st.markdown("---")
+        st.subheader("🖨️ Generate PDF Report")
 
-            try:
-                with NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_pdf:
-                    pdfkit.from_string(html_content, tmp_pdf.name)
-                    with open(tmp_pdf.name, "rb") as f:
-                        st.download_button("📄 Download PDF Report", data=f, file_name="threat_summary.pdf", mime="application/pdf")
-            except Exception as e:
-                st.error(f"PDF generation failed: {e}")
-        else:
-            st.info("No predictions available.")
-
+        from utils.pdf_utils import generate_pdf_summary  # You must place the function there or inline above
+        try:
+            pdf_buffer = generate_pdf_summary(df)
+            st.download_button("📄 Download PDF Report",
+                               data=pdf_buffer,
+                               file_name="threat_summary.pdf",
+                               mime="application/pdf")
+        except Exception as e:
+            st.error(f"PDF generation failed: {e}")
+    else:
+        st.info("No predictions available.")
